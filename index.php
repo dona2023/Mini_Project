@@ -1,60 +1,42 @@
-<?php 
-
-include 'config.php';
-
-
+<?php
 session_start();
-//error_reporting(0);
-
-
-if (isset($_POST['submit'])) {
-	$email = $_POST['email'];
-	$password = md5($_POST['password']);
-
-	$sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-	$result = mysqli_query($conn, $sql);
-	$n=mysqli_num_rows($result);
-
-	if ($n > 0) {
-		$_SESSION['username'] = $row['username'];
-		header("Location: front.html");
-	} else {
-		echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
-	}
-}
-
 ?>
 
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href=
+"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
-
-	<link rel="stylesheet" type="text/css" href="style3.css">
-
-	<title>Login Form - Pure Coding</title>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="login.css">
+	<title>Login Page</title>
 </head>
+
 <body>
-	<div class="container">
-		<form action="" method="POST" class="login-email">
-			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Login</p>
-            
-			
-			<div class="input-group">
-				<input type="email" placeholder="Email" name="email" required>
+	<form action="validate.php" method="post">
+		<div class="login-box">
+			<h1>Login</h1>
+
+			<div class="textbox">
+				<i class="fa fa-user" aria-hidden="true"></i>
+				<input type="text" placeholder="Username"
+						name="username" value="">
 			</div>
-			<div class="input-group">
-				<input type="password" placeholder="Password" name="password" required>
+
+			<div class="textbox">
+				<i class="fa fa-lock" aria-hidden="true"></i>
+				<input type="password" placeholder="Password"
+						name="password" value="">
 			</div>
-			<div class="input-group">
-				<button name="submit" class="btn">Login<a href="front.html"></a></button>
-			</div>
-			<p class="login-register-text">Don't have an account? <a href="register.php">Register Here</a>.</p>
-			<p class="login-register-text"> <a href="forgot.php"><u>forgot Password?</u></a></p>
-		</form>
-	</div>
+
+			<input class="button" type="submit"
+					name="login" value="Sign In">
+		</div>
+	</form>
 </body>
+
 </html>

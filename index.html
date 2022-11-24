@@ -1,113 +1,208 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Registration Page</title>
-    <link rel="stylesheet" type="text/css" href="bootstrap.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="row col-md-6 col-md-offset-3">
-        <div class="panel panel-primary">
-          <div class="panel-heading text-center">
-            <h1>Registration Form</h1>
-          </div>
-          <div class="panel-body">
-            <form action="connect.php" method="post">
-              <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="firstName"
-                  name="firstName"
-                />
-              </div>
-              <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="lastName"
-                  name="lastName"
-                />
-              </div>
-              <div class="form-group">
-                <label for="gender">Gender</label>
-                <div>
-                  <label for="male" class="radio-inline"
-                    ><input
-                      type="radio"
-                      name="gender"
-                      value="m"
-                      id="male"
-                    />Male</label
-                  >
-                  <label for="female" class="radio-inline"
-                    ><input
-                      type="radio"
-                      name="gender"
-                      value="f"
-                      id="female"
-                    />Female</label
-                  >
-                  <label for="others" class="radio-inline"
-                    ><input
-                      type="radio"
-                      name="gender"
-                      value="o"
-                      id="others"
-                    />Others</label
-                  >
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="email"
-                  name="email"
-                />
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="password"
-                  name="password"
-                />
-              </div>
-              <div class="form-group">
-                <label for="number">Phone Number</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="number"
-                  name="number"
-                />
-              </div>
-              <input type="submit" class="btn btn-primary" />
-            </form>
-          </div>
-          <!-- <div class="panel-footer text-right">
-            <small>&copy; Technical Babaji</small>
-          </div>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>My Admin</title>
+  <link rel="stylesheet" href="vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="css/vertical-layout-light/style.css">
+  <link rel="shortcut icon" href="images/favicon.png" />
+</head>
+<body>
+ <div class="container-scroller">
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="navbar-brand-wrapper d-flex justify-content-center">
+        <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+          <a class="navbar-brand brand-logo"><b>SUPER GAS</b></a>
+          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="typcn typcn-th-menu"></span>
+          </button>
         </div>
       </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
+              <img src="images/faces/ad5.jpg" alt="profile"/>
+              <span class="nav-profile-name">Logout</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="typcn typcn-cog-outline text-primary"></i>
+                Settings
+              </a>
+               <a class="dropdown-item" href="index.php"> 
+                <i class="typcn typcn-eject text-primary"></i>
+                Admin Logout
+              </a> 
+              <a class="dropdown-item" href="../login.php"> 
+                <i class="typcn typcn-eject text-primary"></i>
+                User
+              </a> 
+            </div>
+          </li>  
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="typcn typcn-th-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <nav class="navbar-breadcrumb col-xl-12 col-12 d-flex flex-row p-0">
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item ml-0">
+            <h4 class="mb-0">Dashboard</h4>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex align-items-baseline">
+              <p class="mb-0">Home</p>
+              <i class="typcn typcn-chevron-right"></i>
+              <p class="mb-0">Main Dahboard</p>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid page-body-wrapper">
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+             </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="typcn typcn-document-text menu-icon"></i>
+              <span class="menu-title">Consumer</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.php">Add Consumer</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.php">Manage Consumer</a></li>
+                <!-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li> -->
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="typcn typcn-film menu-icon"></i>
+              <span class="menu-title">Products</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="pages/forms/product.php">Products</a></li>
+              </ul>
+            </div>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+              <i class="typcn typcn-chart-pie-outline menu-icon"></i>
+              <span class="menu-title">Billing</span>
+              <i class="menu-arrow"></i>
+            </a> 
+             <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.php">Billing</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+              <i class="typcn typcn-th-small-outline menu-icon"></i>
+              <span class="menu-title">Booking</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="tables">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.php">Booking</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/book.php">Manage Booking</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+              <i class="typcn typcn-compass menu-icon"></i>
+              <span class="menu-title">Distributor</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="icons">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.php">Distributor</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/icons/customer-edit.php">Manage Distributor</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="typcn typcn-user-add-outline menu-icon"></i>
+              <span class="menu-title">User Pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
+              <i class="typcn typcn-globe-outline menu-icon"></i>
+              <span class="menu-title">Error pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="error">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://bootstrapdash.com/demo/polluxui-free/docs/documentation.html">
+              <i class="typcn typcn-mortar-board menu-icon"></i>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li> -->
+        </ul>
+      </nav>
+      
     </div>
-    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-  <!-- <div class="toast-header">
-    <img src="..." class="rounded mr-2" alt="...">
-    <strong class="mr-auto">Bootstrap</strong>
-    <small>11 mins ago</small>
-    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
+    <!-- main-panel ends -->
   </div>
-  <div class="toast-body">
-    Hello, world! This is a toast message.
-  </div> -->
+  <!-- page-body-wrapper ends -->
 </div>
-  </body>
+<!-- container-scroller -->
+
+<!-- base:js -->
+<script src="vendors/js/vendor.bundle.base.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<script src="vendors/chart.js/Chart.min.js"></script>
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="js/off-canvas.js"></script>
+<script src="js/hoverable-collapse.js"></script>
+<script src="js/template.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/todolist.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="js/dashboard.js"></script>
+<!-- End custom js for this page-->
+</body>
+
 </html>
+
+
+
