@@ -1,3 +1,38 @@
+<?php 
+
+include 'config.php';
+
+  $cust_islogged= isset($_SESSION['cust_islogged']) ? $_SESSION['cust_islogged'] : "false";
+  if($cust_islogged=="true"){
+      echo "<script>window.location.href='./customer/customer_dashboard.php';</script>";
+  }
+
+//session_start();
+//error_reporting(0);
+
+
+if (isset($_POST['submit'])) {
+	$email = $_POST['email'];
+	$password = md5($_POST['password']);
+
+	$sql = "SELECT * FROM tblusers WHERE email='$email' AND password='$password'";
+	$result = mysqli_query($conn, $sql);
+	if ($result->num_rows > 0) {
+		$row = mysqli_fetch_assoc($result);
+		//$_SESSION['username'] = $row['username'];
+    $_SESSION['cust_id']= $row['id'];
+    $_SESSION['cust_username']=$row['username'];
+    $_SESSION['cust_email']= $row['email'];
+    $_SESSION['cust_islogged']="true";
+		header("Location: customer/customer_dashboard.php");
+	} else {
+		echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
+	}
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,29 +67,34 @@
    
 
       <div class="logo">
-            <a><img class="main-logo" src="images/logos.png" alt="" height="100" width="50"/> SUPER GAS</a>
+            <a><img class="main-logo" src="images/logos.png" alt="" height="100" width="50"/>  SUPER GAS</a> 
        
-      </div><br><br>
+      </div>
+      
 
   </header>
-<body>
+  
 	<div class="container">
-    <form action="update_password_submit.php" method="post" class="login-email">
-		
-	<p class="login-text" style="font-size: 2rem; font-weight: 300;"><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reset Password</h3></p>
-			<br><div class="input-group">
-				<input type="password" name="pass" style="font-size: 2rem;" placeholder="Enter your new password here" required>
+		<form action="" method="POST" class="login-email">
+			<p class="login-text" style="font-size: 3rem; font-weight: 800;">Login</p>
+            
+			
+			<div class="input-group">
+				<input type="email" placeholder="Email" name="email" required style="font-size: 2rem;">
 			</div>
 			<div class="input-group">
-            <input type="password" name="cpass" style="font-size: 2rem;" placeholder="Enter your password again here" required>
+				<input type="password" placeholder="Password" name="password" required style="font-size: 2rem;">
 			</div>
 			<div class="input-group">
-                     
-				<button class="btn" name="submit_reset" style="font-size: 2rem;" >Reset</button>
+				<button name="submit" class="btn"style="font-size: 2rem;">Login<a href="home.html"></a></button>
+			</div>
+			<p class="login-register-text">Don't have an account? <a href="register.php">Register Here</a>.</p>
+			<p class="login-register-text"> <a href="forgot.php"><u>forgot Password?</u></a></p>
+      <div>
+        <a href="index.php">Back To Home Page</a></div>
 		</form>
 	</div>
-  <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
@@ -65,8 +105,5 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-
 </body>
-    
 </html>
